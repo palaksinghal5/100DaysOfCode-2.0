@@ -5,3 +5,4 @@ LeetCode
 
 - Arrays
 - Strings
+- LinkedList

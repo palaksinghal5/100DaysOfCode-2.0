@@ -9,6 +9,7 @@ public:
             for(int i=0;i<k;i++){
                 nums.insert(nums.begin(),nums.back());
                 nums.erase(nums.end()-1);
+                nums.shrink_to_fit();
             }
         }
             

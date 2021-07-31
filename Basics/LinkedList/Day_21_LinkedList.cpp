@@ -40,6 +40,17 @@ void Print(){
     }
 }
 
+void ReversePrint(node* temp){
+    
+    if(temp==NULL){
+        
+    }
+    else{
+        ReversePrint(temp->link);
+        cout<<temp->data<<"->";
+    }
+}
+
 void InsertatBeg(int x){
     node* temp = new node();
     temp->data = x;
@@ -104,7 +115,24 @@ void Reverse(){
     node* next;
     
     while(curr!=NULL){
-        
+       next = curr->link;
+       curr->link = prev;
+       //next->link = curr;
+      
+       prev = curr;
+       curr = next;
+    }
+    head=prev;
+}
+
+void ReverseRecursion(node* temp){
+    if(temp->link==NULL){
+        head = temp;
+    }
+    else{
+        ReverseRecursion(temp->link);
+        temp->link->link = temp;
+        temp->link = NULL;
     }
 }
 
@@ -123,6 +151,12 @@ int main()
     
     Print();
     Reverse();
+    cout<<endl;
+    Print();
+    cout<<endl;
+    ReversePrint(head);
+    cout<<endl;
+    ReverseRecursion(head);
     Print();
 
     return 0;
